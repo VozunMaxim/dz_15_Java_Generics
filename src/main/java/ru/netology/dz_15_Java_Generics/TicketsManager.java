@@ -3,18 +3,23 @@ package ru.netology.dz_15_Java_Generics;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
+
 public class TicketsManager {
     protected TicketsRepository repo;
 
     public TicketsManager(TicketsRepository repo) {
+
         this.repo = repo;
     }
 
     public void add(Tickets tickets) {
+
         repo.add(tickets);
     }
 
-    public Tickets[] findAll() {
+    public Tickets[] findAll(String from, String to) {
+
         return repo.findAll();
     }
 
@@ -31,6 +36,7 @@ public class TicketsManager {
                 result = tmp;
             }
         }
+        Arrays.sort(result);
         return result;
     }
 
@@ -42,4 +48,5 @@ public class TicketsManager {
         }
         return false;
     }
+
 }
